@@ -1,0 +1,130 @@
+#!/bin/bash 
+
+# Script zum ausführen von Kommandos über Ethnernet zu einem Toshiba LCD Fernseher (Vestel Chassis)
+# Script to execute commands over Ethernet to Toshiba LCD Television (Vestel Chassis)
+# Version 0.1 10.12.2018 Cihan Sahin Germany
+
+#IP dem Fernseher anpassen 
+#Change IP to your TV
+
+
+
+#Variablen
+ip="http://192.168.0.108:56789/apps/SmartCenter" #Ziel Adresse des TV Targethost TV
+
+
+#Programmstart
+echo "Toshiba Lan Remote Control V0.01"
+echo "$ip"
+
+#Zielhostabfrage
+if [ -n $ip ]
+  then
+    echo "Verbindung zu $ip wird hergestellt"
+  else
+    echo "Bitte zuerst die IP des TV eintragen."
+fi
+
+#Keycodes senden
+case "$1" in
+        0) curl -X POST -d '<remote><key code=1000/></remote>' $ip
+            ;;
+        1) curl -X POST -d '<remote><key code=1001/></remote>' $ip
+            ;;
+        2) curl -X POST -d '<remote><key code=1002/></remote>' $ip
+            ;;
+        3) curl -X POST -d '<remote><key code=1003/></remote>' $ip
+            ;;
+        4) curl -X POST -d '<remote><key code=1004/></remote>' $ip
+            ;;
+		5) curl -X POST -d '<remote><key code=1005/></remote>' $ip
+            ;;
+        6) curl -X POST -d '<remote><key code=1006/></remote>' $ip
+            ;;
+        7) curl -X POST -d '<remote><key code=1007/></remote>' $ip
+            ;;
+        8) curl -X POST -d '<remote><key code=1008/></remote>' $ip
+            ;;
+        9) curl -X POST -d '<remote><key code=1009/></remote>' $ip
+		    ;;
+		back) curl -X POST -d '<remote><key code=1010/></remote>' $ip
+            ;;
+        ratio) curl -X POST -d '<remote><key code=1011/></remote>' $ip
+            ;;
+        on) curl -X POST -d '<remote><key code=1012/></remote>' $ip
+		    echo "Kommando On wird gesendet"
+            ;;
+        mute) curl -X POST -d '<remote><key code=1013/></remote>' $ip
+            ;;
+        lang) curl -X POST -d '<remote><key code=1015/></remote>' $ip
+            ;;
+		volup) curl -X POST -d '<remote><key code=1016/></remote>' $ip
+            ;;
+        voldown) curl -X POST -d '<remote><key code=1017/></remote>' $ip
+            ;;
+        info) curl -X POST -d '<remote><key code=1018/></remote>' $ip
+            ;;
+        down) curl -X POST -d '<remote><key code=1019/></remote>' $ip
+            ;;
+        up) curl -X POST -d '<remote><key code=1020/></remote>' $ip
+		    ;;
+		left) curl -X POST -d '<remote><key code=1021/></remote>' $ip
+            ;;
+        right) curl -X POST -d '<remote><key code=1022/></remote>' $ip
+            ;;
+        stop) curl -X POST -d '<remote><key code=1024/></remote>' $ip
+            ;;
+        play) curl -X POST -d '<remote><key code=1025/></remote>' $ip
+            ;;
+        rewind) curl -X POST -d '<remote><key code=1027/></remote>' $ip
+            ;;
+		forward) curl -X POST -d '<remote><key code=1028/></remote>' $ip
+            ;;
+        sub) curl -X POST -d '<remote><key code=1031/></remote>' $ip
+            ;;
+        close) curl -X POST -d '<remote><key code=1037/></remote>' $ip
+            ;;
+        fav) curl -X POST -d '<remote><key code=1040/></remote>' $ip
+            ;;
+        timer) curl -X POST -d '<remote><key code=1042/></remote>' $ip
+		    ;;
+		quick) curl -X POST -d '<remote><key code=1043/></remote>' $ip
+            ;;
+        app) curl -X POST -d '<remote><key code=1046/></remote>' $ip
+            ;;
+        epg) curl -X POST -d '<remote><key code=1047/></remote>' $ip
+            ;;
+        menu) curl -X POST -d '<remote><key code=1048/></remote>' $ip
+            ;;
+        pause) curl -X POST -d '<remote><key code=1049/></remote>' $ip
+            ;;
+		yellow) curl -X POST -d '<remote><key code=1050/></remote>' $ip
+            ;;
+        rec) curl -X POST -d '<remote><key code=1051/></remote>' $ip
+            ;;
+        blue) curl -X POST -d '<remote><key code=1052/></remote>' $ip
+            ;;
+        ok) curl -X POST -d '<remote><key code=1053/></remote>' $ip
+            ;;
+        green) curl -X POST -d '<remote><key code=1054/></remote>' $ip
+		    ;;
+		red) curl -X POST -d '<remote><key code=1055/></remote>' $ip
+            ;;
+        input) curl -X POST -d '<remote><key code=1056/></remote>' $ip
+            ;;
+        mediabrowser) curl -X POST -d '<remote><key code=1057/></remote>' $ip
+            ;;
+        text) curl -X POST -d '<remote><key code=1255/></remote>' $ip
+            ;;
+        presets) curl -X POST -d '<remote><key code=1014/></remote>' $ip
+            ;;
+		progup) curl -X POST -d '<remote><key code=1032/></remote>' $ip
+            ;;
+        progdown) curl -X POST -d '<remote><key code=1033/></remote>' $ip
+            ;;
+        swap) curl -X POST -d '<remote><key code=1034/></remote>' $ip
+            ;;
+        channel) curl -X POST -d '<remote><key code=1045/></remote>' $ip
+            ;;
+        
+esac
